@@ -1,0 +1,157 @@
+{
+"ANALY_TAIWAN_TWGRID_K8S_P100": {
+                "queueStatus": "OFFLINE",
+                "prodSourceLabel": "user",
+                "nQueueLimitWorkerRatio": 25,
+                "nQueueLimitJob": 3,
+                "nQueueLimitWorkerMax": 3,
+                "nQueueLimitWorkerMin": 3,
+                "maxWorkers": 3,
+                "maxNewWorkersPerCycle": 1,
+                "mapType": "OneToOne",
+                "truePilot": true,
+                "preparator": {
+                        "name": "DummyPreparator",
+                        "module": "pandaharvester.harvesterpreparator.dummy_preparator"
+                },
+                "submitter": {
+                        "name":"K8sSubmitter",
+                        "module":"pandaharvester.harvestersubmitter.k8s_submitter",
+                        "x509UserProxy": "/usr/shortproxy-twgrid",
+                        "proxySecretPath":"/proxy/shortproxy-twgrid",
+                        "cpuAdjustRatio": 100,
+                        "memoryAdjustRatio": 100,
+                        "gpuTocpuRatio": [ 1 , 12 ]
+                },
+                "workerMaker": {
+                        "name": "SimpleWorkerMaker",
+                        "module": "pandaharvester.harvesterworkermaker.simple_worker_maker"
+                },
+                "messenger": {
+                        "name": "SharedFileMessenger",
+                        "module": "pandaharvester.harvestermessenger.shared_file_messenger",
+                        "jobSpecFileFormat": "cgi",
+                        "accessPoint": "/sharedfs/tmp/${workerID}"
+                },
+                "stager": {
+                        "name": "DummyStager",
+                        "module": "pandaharvester.harvesterstager.dummy_stager"
+                },
+                "monitor": {
+                        "name":"K8sMonitor",
+                        "module":"pandaharvester.harvestermonitor.k8s_monitor"
+                },
+                "sweeper": {
+                        "name": "K8sSweeper",
+                        "module": "pandaharvester.harvestersweeper.k8s_sweeper"
+                },
+                "common": {
+                       "k8s_yaml_file": "/home/harvesteruser/k8s-yaml/asgc_mpi.yaml",
+                       "k8s_config_file": "/home/harvesteruser/.kube/config",
+                       "k8s_namespace": "default"
+                }
+        },
+"ANALY_TAIWAN_TWGRID_KAGRA_GPU": {
+                "queueStatus": "online",
+                "prodSourceLabel": "user",
+                "nQueueLimitWorkerRatio": 25,
+                "nQueueLimitJob": 3,
+                "nQueueLimitWorkerMax": 3,
+                "nQueueLimitWorkerMin": 3,
+                "maxWorkers": 3,
+                "maxNewWorkersPerCycle": 1,
+                "mapType": "OneToOne",
+                "truePilot": true,
+                "preparator": {
+                        "name": "DummyPreparator",
+                        "module": "pandaharvester.harvesterpreparator.dummy_preparator"
+                },
+                "submitter": {
+                        "name":"K8sSubmitter",
+                        "module":"pandaharvester.harvestersubmitter.k8s_submitter",
+                        "x509UserProxy": "/usr/shortproxy-twgrid",
+                        "proxySecretPath":"/proxy/shortproxy-twgrid",
+                        "cpuAdjustRatio": 100,
+                        "memoryAdjustRatio": 100,
+                        "gpuTocpuRatio": [ 1 , 1 ]
+                },
+                "workerMaker": {
+                        "name": "SimpleWorkerMaker",
+                        "module": "pandaharvester.harvesterworkermaker.simple_worker_maker"
+                },
+                "messenger": {
+                        "name": "SharedFileMessenger",
+                        "module": "pandaharvester.harvestermessenger.shared_file_messenger",
+                        "jobSpecFileFormat": "cgi",
+                        "accessPoint": "/sharedfs/tmp/${workerID}"
+                },
+                "stager": {
+                        "name": "DummyStager",
+                        "module": "pandaharvester.harvesterstager.dummy_stager"
+                },
+                "monitor": {
+                        "name":"K8sMonitor",
+                        "module":"pandaharvester.harvestermonitor.k8s_monitor"
+                },
+                "sweeper": {
+                        "name": "K8sSweeper",
+                        "module": "pandaharvester.harvestersweeper.k8s_sweeper"
+                },
+                "common": {
+                       "k8s_yaml_file": "/usr/k8s-yaml/asgc_kagra.yaml",
+                       "k8s_config_file": "/usr/.kube/config",
+                       "k8s_namespace": "default"
+                }
+        },
+"ANALY_TAIWAN_TWGRID_K8S_TEST": {
+                "queueStatus": "OFFLINE",
+                "prodSourceLabel": "user",
+                "nQueueLimitWorkerRatio": 25,
+                "nQueueLimitJob": 10,
+                "nQueueLimitWorkerMax": 8,
+                "nQueueLimitWorkerMin": 8,
+                "maxWorkers": 8,
+                "maxNewWorkersPerCycle": 1,
+                "mapType": "OneToOne",
+                "truePilot": true,
+                "preparator": {
+                        "name": "DummyPreparator",
+                        "module": "pandaharvester.harvesterpreparator.dummy_preparator"
+                },
+                "submitter": {
+                        "name":"K8sSubmitter",
+                        "module":"pandaharvester.harvestersubmitter.k8s_submitter",
+                        "x509UserProxy": "/usr/shortproxy-twgrid",
+                        "proxySecretPath":"/proxy/shortproxy-twgrid",
+                        "cpuAdjustRatio": 100,
+                        "memoryAdjustRatio": 100
+                },
+                "workerMaker": {
+                        "name": "SimpleWorkerMaker",
+                        "module": "pandaharvester.harvesterworkermaker.simple_worker_maker"
+                },
+                "messenger": {
+                        "name": "SharedFileMessenger",
+                        "module": "pandaharvester.harvestermessenger.shared_file_messenger",
+                        "jobSpecFileFormat": "cgi",
+                        "accessPoint": "/sharedfs/tmp/${workerID}"
+                },
+                "stager": {
+                        "name": "DummyStager",
+                        "module": "pandaharvester.harvesterstager.dummy_stager"
+                },
+                "monitor": {
+                        "name":"K8sMonitor",
+                        "module":"pandaharvester.harvestermonitor.k8s_monitor"
+                },
+                "sweeper": {
+                        "name": "K8sSweeper",
+                        "module": "pandaharvester.harvestersweeper.k8s_sweeper"
+                },
+                "common": {
+                       "k8s_yaml_file": "/home/harvesteruser/k8s-yaml/asgc.yaml",
+                       "k8s_config_file": "/usr/.kube/config",
+                       "k8s_namespace": "default"
+                }
+        }
+}
