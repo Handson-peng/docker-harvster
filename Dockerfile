@@ -23,9 +23,9 @@ COPY ca-bundle.pem /opt/ca-bundle.pem
 
 RUN mv etc/rc.d/init.d/panda_harvester-uwsgi.rpmnew.template etc/rc.d/init.d/panda_harvester-uwsgi
 RUN sed -i 's/userName="#FIXME"/userName="root"/g' etc/rc.d/init.d/panda_harvester-uwsgi
-RUN sed -i 's/groupName="#FIXME"/groupName="#root"/g' etc/rc.d/init.d/panda_harvester-uwsgi
+RUN sed -i 's/groupName="#FIXME"/groupName="root"/g' etc/rc.d/init.d/panda_harvester-uwsgi
 RUN sed -i 's/VIRTUAL_ENV=\/#FIXME/VIRTUAL_ENV=\/usr/g' etc/rc.d/init.d/panda_harvester-uwsgi
-RUN sed -i 's/LOG_DIR=\/#FIXME/LOG_DIR=\/var/log/panda/g' etc/rc.d/init.d/panda_harvester-uwsgi
+RUN sed -i 's/LOG_DIR=\/#FIXME/LOG_DIR=\/var\/log\/panda/g' etc/rc.d/init.d/panda_harvester-uwsgi
 
 COPY harvester_start.sh /usr/harvester_start.sh
 CMD sh harvester_start.sh
