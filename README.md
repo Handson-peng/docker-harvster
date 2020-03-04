@@ -5,7 +5,7 @@
      docker run -it harvester
 
 
-## Troubleshooting
+# Troubleshooting
 If you see error like
 **error creating overlay mount to /var/lib/docker/overlay2/...: invalid argument.**
 Try to update kernel
