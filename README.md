@@ -7,5 +7,5 @@
 
 ## Troubleshooting
 If you see error like:
-     error creating overlay mount to /var/lib/docker/overlay2/...: invalid argument.
+**error creating overlay mount to /var/lib/docker/overlay2/...: invalid argument.**
 try to update kernel
