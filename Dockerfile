@@ -16,10 +16,8 @@ RUN mkdir /var/log/panda
 
 WORKDIR /usr
 COPY panda_harvester etc/sysconfig/panda_harvester
-COPY panda_common.cfg etc/panda/panda_common.cfg
+RUN mv etc/panda/panda_common.cfg.rpmnew etc/panda/panda_common.cfg
 COPY panda_harvester.cfg etc/panda/panda_harvester.cfg
-COPY panda_queueconfig.json etc/panda/panda_queueconfig.json
-COPY ca-bundle.pem /opt/ca-bundle.pem
 
 RUN mv etc/rc.d/init.d/panda_harvester-uwsgi.rpmnew.template etc/rc.d/init.d/panda_harvester-uwsgi
 RUN sed -i 's/userName="#FIXME"/userName="root"/g' etc/rc.d/init.d/panda_harvester-uwsgi
