@@ -2,7 +2,7 @@
      docker pull docker.io/alpine
      docker build --tag harvester .
 ## Run container
-     docker run -it harvester
+     docker run -it -v $(pwd)/config:/mnt harvester
 ### Troubleshooting
 If you see error like
 
