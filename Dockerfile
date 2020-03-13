@@ -13,6 +13,7 @@ RUN pip3 install git+git://github.com/HSF/harvester.git
 RUN pip3 install kubernetes uwsgi
 RUN pip3 install mysql-connector
 RUN mkdir /var/log/panda
+COPY CERN-bundle.pem /etc/pki/tls/certs/CERN-bundle.pem
 
 WORKDIR /usr
 COPY panda_harvester etc/sysconfig/panda_harvester
